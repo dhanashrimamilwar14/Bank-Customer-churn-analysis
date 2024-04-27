@@ -55,20 +55,20 @@ Having count(customerID) > 1;
 
 -- Checking For Null Values
 SELECT
-    COUNT(CASE WHEN RowNumber IS NULL THEN 1 END) AS RowNumber_null_count,
-    COUNT(CASE WHEN CustomerId IS NULL THEN 1 END) AS CustomerId_null_count,
-    COUNT(CASE WHEN Surname IS NULL THEN 1 END) AS Surname_null_count,
-    COUNT(CASE WHEN CreditScore IS NULL THEN 1 END) AS CreditScore_null_count,
-    COUNT(CASE WHEN Geography IS NULL THEN 1 END) AS Geography_null_count,
-    COUNT(CASE WHEN Gender IS NULL THEN 1 END) AS Gender_null_count,
-    COUNT(CASE WHEN Age IS NULL THEN 1 END) AS Age_null_count,
-    COUNT(CASE WHEN Tenure IS NULL THEN 1 END) AS Tenure_null_count,
-    COUNT(CASE WHEN Balance IS NULL THEN 1 END) AS Balance_null_count,
-    COUNT(CASE WHEN NumOfProducts IS NULL THEN 1 END) AS NumOfProducts_null_count,
-    Count(CASE WHEN Credit_Card IS NULL THEN 1 END) AS Credit_Card_null_count,
-    Count(CASE WHEN Active_Category IS NULL THEN 1 END) AS Active_Category_null_count,
-    COUNT(CASE WHEN EstimatedSalary IS NULL THEN 1 END) AS EstimatedSalary_null_count,
-    COUNT(CASE WHEN Exited_Status IS NULL THEN 1 END) AS Exited_Status_null_count
+    SUM(CASE WHEN RowNumber IS NULL THEN 1 ELSE 0 END) AS RowNumber_null_count,
+    SUM(CASE WHEN CustomerId IS NULL THEN 1 ELSE 0 END) AS CustomerId_null_count,
+    SUM(CASE WHEN Surname IS NULL THEN 1 ELSE 0 END) AS Surname_null_count,
+    SUM(CASE WHEN CreditScore IS NULL THEN 1 ELSE 0 END) AS CreditScore_null_count,
+    SUM(CASE WHEN Geography IS NULL THEN 1 ELSE 0 END) AS Geography_null_count,
+    SUM(CASE WHEN Gender IS NULL THEN 1 ELSE 0 END) AS Gender_null_count,
+    SUM(CASE WHEN Age IS NULL THEN 1 ELSE 0 END) AS Age_null_count,
+    SUM(CASE WHEN Tenure IS NULL THEN 1 ELSE 0 END) AS Tenure_null_count,
+    SUM(CASE WHEN Balance IS NULL THEN 1 ELSE 0 END) AS Balance_null_count,
+    SUM(CASE WHEN NumOfProducts IS NULL THEN 1 ELSE 0 END) AS NumOfProducts_null_count,
+    SUM(CASE WHEN Credit_Card_Status IS NULL THEN 1 ELSE 0 END) AS Credit_Card_null_count,
+    SUM(CASE WHEN Activity_Status IS NULL THEN 1 ELSE 0 END) AS Active_Category_null_count,
+    SUM(CASE WHEN EstimatedSalary IS NULL THEN 1 ELSE 0 END) AS EstimatedSalary_null_count,
+    SUM(CASE WHEN Exit_Status IS NULL THEN 1 ELSE 0 END) AS Exited_Status_null_count
 FROM churn_modelling;
 -- No null value found
 
